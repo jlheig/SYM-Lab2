@@ -6,13 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    <Button
+        android:id="@+id/asyncButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Etape 3.1"
+         />
+
+    <Button
+        android:id="@+id/differButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Etape 3.2"
+        android:layout_below="@id/asyncButton"
+        />
+
+    <Button
+        android:id="@+id/objectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Etape 3.3"
+        android:layout_below="@id/differButton"
+        />
+
+    <Button
+        android:id="@+id/graphqlButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Etape 3.4"
+        android:layout_below="@id/objectButton"
+         />
+
+    <Button
+        android:id="@+id/compressButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Etape 3.5"
+        android:layout_below="@id/graphqlButton"
+        />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

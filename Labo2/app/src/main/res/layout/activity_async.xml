@@ -36,7 +36,6 @@
             android:layout_height="wrap_content"
             android:text="@string/async_send_button"
             android:layout_below="@id/async_sendContent"
-            android:onClick="sendAsyncMessage"
 
         />
         

@@ -8,12 +8,12 @@ import java.util.logging.Handler
 
 class SymComManager (private var l : CommunicationEventListener) {
 
-    fun sendRequest(request : String, urlName : String ) {
+    fun sendRequest(request : String, urlName : String, requestType : String ) {
         Thread {
             val url = URL(urlName)
             val urlConnection = url.openConnection() as HttpURLConnection
             urlConnection.requestMethod = "POST"
-            urlConnection.setRequestProperty("content-type", "text/plain")
+            urlConnection.setRequestProperty("content-type", requestType)
 
             try {
                 val output = OutputStreamWriter(urlConnection.outputStream)

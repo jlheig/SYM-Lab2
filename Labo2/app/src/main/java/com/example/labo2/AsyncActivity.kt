@@ -27,7 +27,7 @@ class AsyncActivity : AppCompatActivity() {
                 }
             })
 
-            scm.sendRequest( requestText.getText().toString(), "http://mobile.iict.ch/api/txt" )
+            scm.sendRequest( requestText.getText().toString(), "http://mobile.iict.ch/api/txt", "text/plain" )
         }
     }
 }

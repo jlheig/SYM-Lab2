@@ -11,4 +11,11 @@
     <string name="async_send_button">Envoyer</string>
     <string name="async_reception_title">Reception</string>
     <string name="async_reception_content"></string>
+
+    <string name="graphql_author_choice_text">Choix de l\'auteur</string>
+    <string-array name="test">
+        <item>test 1</item>
+        <item>test 2</item>
+        <item>test 3</item>
+    </string-array>
 </resources>

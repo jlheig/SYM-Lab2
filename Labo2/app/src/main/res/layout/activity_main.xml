@@ -16,42 +16,43 @@
         app:layout_constraintTop_toTopOf="parent">
 
     <Button
-        android:id="@+id/asyncButton"
+        android:id="@+id/main_asyncButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Etape 3.1"
+        android:text="@string/main_asyncButton"
+        android:onClick="goAsyncActivity"
          />
 
     <Button
-        android:id="@+id/differButton"
+        android:id="@+id/main_differButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Etape 3.2"
-        android:layout_below="@id/asyncButton"
+        android:text="@string/main_differButton"
+        android:layout_below="@id/main_asyncButton"
         />
 
     <Button
-        android:id="@+id/objectButton"
+        android:id="@+id/main_objectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Etape 3.3"
-        android:layout_below="@id/differButton"
+        android:text="@string/main_objectButton"
+        android:layout_below="@id/main_differButton"
         />
 
     <Button
-        android:id="@+id/graphqlButton"
+        android:id="@+id/main_graphqlButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Etape 3.4"
-        android:layout_below="@id/objectButton"
+        android:text="@string/main_graphqlButton"
+        android:layout_below="@id/main_objectButton"
          />
 
     <Button
-        android:id="@+id/compressButton"
+        android:id="@+id/main_compressButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Etape 3.5"
-        android:layout_below="@id/graphqlButton"
+        android:text="@string/main_compressButton"
+        android:layout_below="@id/main_graphqlButton"
         />
 
     </RelativeLayout>

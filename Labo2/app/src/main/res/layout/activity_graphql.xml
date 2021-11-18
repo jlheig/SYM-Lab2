@@ -25,7 +25,14 @@
            android:id="@+id/graphql_spinner"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:layout_toRightOf="@id/graphql_author_choice"/>
+           android:layout_below="@id/graphql_author_choice"/>
+
+        <ListView
+            android:id="@+id/graphql_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/graphql_spinner"/>
+
 
     </RelativeLayout>
 

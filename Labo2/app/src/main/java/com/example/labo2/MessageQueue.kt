@@ -1,5 +1,6 @@
 package com.example.labo2
 
+import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import java.io.IOException
@@ -13,14 +14,18 @@ import java.util.*
 class MessageQueue {
     private val TAG = "MessageQueue"
     private var requestQueue: Queue<String> = PriorityQueue<String>()
-
+    private var firstRequest = true; //Utilisé pour pas démarrer un thread à chaque clic
     fun sendRequest(request : String, urlName : String ) {
         requestQueue.add(request)
-        processRequest(urlName)
+        if (firstRequest) {
+            processRequest(urlName)
+        }
     }
 
     fun processRequest(urlName: String){
         Thread {
+            //TODO: Requêtes doit être envoyé dans l'ordre:
+            firstRequest = false;
             val currentRequest = requestQueue.peek() ?: return@Thread;
 
             val url = URL(urlName)
@@ -48,6 +53,8 @@ class MessageQueue {
             }
             finally {
                 urlConnection.disconnect()
+                Thread.sleep(5000)
+                processRequest(urlName)
             }
         }.start()
     }

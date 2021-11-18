@@ -36,5 +36,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    fun goDifferActivity(view : View) {
+        val intent = Intent(this, DifferActivity::class.java)
+        startActivity(intent)
+    }
 }
 

@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Labo2">
         <activity
+            android:name=".DifferActivity"
+            android:exported="false" />
+        <activity
             android:name=".graphql.GraphqlActivity"
             android:exported="true" />
         <activity

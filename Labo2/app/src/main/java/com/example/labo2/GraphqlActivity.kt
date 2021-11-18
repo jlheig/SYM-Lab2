@@ -47,11 +47,9 @@ class GraphqlActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
     override fun onItemSelected(parent: AdapterView<*>, view : View?, pos: Int, id: Long) {
         var author = parent.getItemAtPosition(pos)
         if (author is Author) {
-            val requestBooksByAuthor = "{\"query\": \"{findAuthorById(id:${author.id}){books{id, title, languageCode, authors{name}}}}\"}"
+            val requestBooksByAuthor = "{\"query\": \"{findAuthorById(id:${author.id}){books{title}}}\"}"
             val bookScm = SymComManager( object : CommunicationEventListener{
                 override fun handleServerResponse(response: String) {
-                    println(response)
-
                     val bookAdapter = ArrayAdapter<String>(this@GraphqlActivity, android.R.layout.simple_expandable_list_item_1)
                     val bookArray = JSONObject(response).getJSONObject("data").getJSONObject("findAuthorById").getJSONArray("books")
                     for (i : Int in 0..(bookArray.length() - 1)) {

@@ -15,6 +15,9 @@
             android:name=".AsyncActivity"
             android:exported="true" />
         <activity
+            android:name=".ObjectActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

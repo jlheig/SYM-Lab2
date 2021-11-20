@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ObjectActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="265dp"
+        android:layout_height="278dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/object_sendTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/object_send_title" />
+
+
+        <RadioGroup
+            android:id="@+id/object_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/object_sendTitle"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/radio_json"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="JSON" />
+
+            <RadioButton
+                android:id="@+id/radio_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="XML" />
+
+            <RadioButton
+                android:id="@+id/radio_protobuf"
+                android:layout_width="133dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="ProtoBuf" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/object_sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/object_radio_group"
+            android:layout_marginTop="1dp"
+
+            android:text="@string/object_send_button" />
+
+        <TextView
+            android:id="@+id/object_receptionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/object_sendButton"
+            android:layout_marginTop="1dp"
+            android:text="@string/object_reception_title" />
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

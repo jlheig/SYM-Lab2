@@ -30,5 +30,10 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, AsyncActivity::class.java)
         startActivity(intent)
     }
+
+    fun goObjectActivity(view : View) {
+        val intent = Intent(this, ObjectActivity::class.java)
+        startActivity(intent)
+    }
 }
 

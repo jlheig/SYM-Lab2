@@ -1,7 +1,6 @@
-package com.example.labo2
+package com.example.labo2.differ
 
 import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import java.io.IOException
 import java.io.InputStreamReader
@@ -11,10 +10,13 @@ import java.net.SocketTimeoutException
 import java.net.URL
 import java.util.*
 
+/**
+ * Class that stock pending messages and try to send them every 5 seconds
+ */
 class MessageQueue {
     private val TAG = "MessageQueue"
     private var requestQueue: Queue<String> = PriorityQueue<String>()
-    private var firstRequest = true; //Utilisé pour pas démarrer un thread à chaque clic
+    private var firstRequest = true; //Used to not start a thread everytime sendRequest is called
     fun sendRequest(request : String, urlName : String ) {
         requestQueue.add(request)
         if (firstRequest) {
@@ -24,7 +26,6 @@ class MessageQueue {
 
     fun processRequest(urlName: String){
         Thread {
-            //TODO: Requêtes doit être envoyé dans l'ordre:
             firstRequest = false;
             val currentRequest = requestQueue.peek() ?: return@Thread;
 

@@ -28,7 +28,6 @@
         android:layout_height="wrap_content"
         android:text="@string/main_differButton"
         android:layout_below="@id/main_asyncButton"
-        android:onClick="goDifferActivity"
         />
 
     <Button

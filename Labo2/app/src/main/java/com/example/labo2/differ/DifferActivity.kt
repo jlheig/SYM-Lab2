@@ -1,9 +1,10 @@
-package com.example.labo2
+package com.example.labo2.differ
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import com.example.labo2.R
 
 class DifferActivity : AppCompatActivity() {
 

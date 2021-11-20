@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.labo2.async.AsyncActivity
+import com.example.labo2.differ.DifferActivity
 import com.example.labo2.graphql.GraphqlActivity
 
 
@@ -35,11 +36,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, GraphqlActivity::class.java)
             startActivity(intent)
         }
+
+        differBtn.setOnClickListener {
+            val intent = Intent(this, DifferActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-    fun goDifferActivity(view : View) {
-        val intent = Intent(this, DifferActivity::class.java)
-        startActivity(intent)
-    }
 }
 

@@ -20,7 +20,7 @@ class MessageQueue(var firstRequest: Boolean = true) {
         requestQueue.add(request)
         if(firstRequest) {
             Thread{
-                firstRequest = false;
+                firstRequest = false
                 while (!requestQueue.isEmpty()) {
                     processRequest(urlName)
                     Thread.sleep(5000)
@@ -31,13 +31,14 @@ class MessageQueue(var firstRequest: Boolean = true) {
     }
 
     fun processRequest(urlName: String){
-            val currentRequest = requestQueue.peek() ?: return;
+        while(true) {
+            val currentRequest = requestQueue.peek() ?: return
 
             val url = URL(urlName)
             val urlConnection = url.openConnection() as HttpURLConnection
             urlConnection.requestMethod = "POST"
             urlConnection.setRequestProperty("content-type", "text/plain")
-            urlConnection.connectTimeout = 5000;
+            urlConnection.connectTimeout = 5000
 
             try {
                 val output = OutputStreamWriter(urlConnection.outputStream)
@@ -45,20 +46,17 @@ class MessageQueue(var firstRequest: Boolean = true) {
                 output.flush()
 
                 val input = InputStreamReader(urlConnection.inputStream)
-                var text = input.readText()
+                val text = input.readText()
                 Log.i(TAG, "server send: $text")
-                requestQueue.poll();
-            }
-            catch (e: SocketTimeoutException) {
-                Log.e(TAG, e.toString())
-
-            }
-            catch (e: IOException){
-                Log.e(TAG, e.toString())
-            }
-            finally {
+                requestQueue.poll()
                 urlConnection.disconnect()
             }
+            catch (e: Exception){
+                Log.e(TAG, "Failed to send messages, retrying in 5 seconds...")
+                urlConnection.disconnect()
+                return
+            }
 
+        }
     }
 }

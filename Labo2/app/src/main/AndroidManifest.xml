@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Labo2">
         <activity
-            android:name=".GraphqlActivity"
+            android:name=".graphql.GraphqlActivity"
             android:exported="true" />
         <activity
-            android:name=".AsyncActivity"
+            android:name=".async.AsyncActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

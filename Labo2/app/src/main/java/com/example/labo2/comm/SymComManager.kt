@@ -1,10 +1,9 @@
-package com.example.labo2
+package com.example.labo2.comm
 
 import android.os.Looper
 import java.io.*
 import java.net.HttpURLConnection
 import java.net.URL
-import java.util.logging.Handler
 
 class SymComManager (private var l : CommunicationEventListener) {
 

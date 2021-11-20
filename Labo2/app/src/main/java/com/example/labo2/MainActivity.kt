@@ -3,8 +3,9 @@ package com.example.labo2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
+import com.example.labo2.async.AsyncActivity
+import com.example.labo2.graphql.GraphqlActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,11 +25,16 @@ class MainActivity : AppCompatActivity() {
         objectBtn   = findViewById(R.id.main_objectButton)
         graphqlBtn  = findViewById(R.id.main_graphqlButton)
         compressBtn = findViewById(R.id.main_compressButton)
-    }
 
-    fun goAsyncActivity(view : View) {
-        val intent = Intent(this, AsyncActivity::class.java)
-        startActivity(intent)
+        asyncBtn.setOnClickListener {
+            val intent = Intent(this, AsyncActivity::class.java)
+            startActivity(intent)
+        }
+
+        graphqlBtn.setOnClickListener{
+            val intent = Intent(this, GraphqlActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
 

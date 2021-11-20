@@ -1,4 +1,4 @@
-package com.example.labo2
+package com.example.labo2.comm
 
 interface CommunicationEventListener {
     fun handleServerResponse(response : String)

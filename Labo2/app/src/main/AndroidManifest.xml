@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Labo2">
         <activity
+            android:name=".compression.CompressionActivity"
+            android:exported="true" />
+        <activity
             android:name=".differ.DifferActivity"
             android:exported="false" />
         <activity

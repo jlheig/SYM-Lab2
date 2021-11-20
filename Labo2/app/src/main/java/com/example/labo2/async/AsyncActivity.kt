@@ -1,10 +1,12 @@
-package com.example.labo2
+package com.example.labo2.async
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import java.net.CacheResponse
+import com.example.labo2.comm.CommunicationEventListener
+import com.example.labo2.R
+import com.example.labo2.comm.SymComManager
 
 class AsyncActivity : AppCompatActivity() {
 
@@ -27,7 +29,7 @@ class AsyncActivity : AppCompatActivity() {
                 }
             })
 
-            scm.sendRequest( requestText.getText().toString(), "http://mobile.iict.ch/api/txt" )
+            scm.sendRequest( requestText.getText().toString(), "http://mobile.iict.ch/api/txt", "text/plain" )
         }
     }
 }

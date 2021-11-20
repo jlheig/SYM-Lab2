@@ -3,8 +3,11 @@ package com.example.labo2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
+import com.example.labo2.async.AsyncActivity
+import com.example.labo2.compression.CompressionActivity
+import com.example.labo2.differ.DifferActivity
+import com.example.labo2.graphql.GraphqlActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,16 +27,31 @@ class MainActivity : AppCompatActivity() {
         objectBtn   = findViewById(R.id.main_objectButton)
         graphqlBtn  = findViewById(R.id.main_graphqlButton)
         compressBtn = findViewById(R.id.main_compressButton)
-    }
 
-    fun goAsyncActivity(view : View) {
-        val intent = Intent(this, AsyncActivity::class.java)
-        startActivity(intent)
-    }
+        asyncBtn.setOnClickListener {
+            val intent = Intent(this, AsyncActivity::class.java)
+            startActivity(intent)
+        }
 
-    fun goObjectActivity(view : View) {
-        val intent = Intent(this, ObjectActivity::class.java)
-        startActivity(intent)
+        graphqlBtn.setOnClickListener{
+            val intent = Intent(this, GraphqlActivity::class.java)
+            startActivity(intent)
+        }
+
+        differBtn.setOnClickListener {
+            val intent = Intent(this, DifferActivity::class.java)
+            startActivity(intent)
+        }
+
+        compressBtn.setOnClickListener{
+            val intent = Intent(this, CompressionActivity::class.java)
+            startActivity(intent)
+        }
+
+        objectBtn.setOnClickListener{
+            val intent = Intent(this, ObjectActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
 

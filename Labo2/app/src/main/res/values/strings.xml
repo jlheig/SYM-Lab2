@@ -17,4 +17,7 @@
     <string name="object_send_button">Envoyer</string>
     <string name="object_reception_title">Reception</string>
     <string name="object_reception_content"></string>
+
+    <string name="graphql_author_choice_text">Choix de l\'auteur</string>
+
 </resources>

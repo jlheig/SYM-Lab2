@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".async.AsyncActivity">
+    tools:context=".differ.DifferActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -13,49 +13,34 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-    >
+        >
 
         <TextView
-            android:id="@+id/async_sendTitle"
+            android:id="@+id/differ_sendTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/async_send_title"
-        />
+            />
 
         <EditText
-            android:id="@+id/async_sendContent"
+            android:id="@+id/differ_sendContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/async_sendTitle"
+            android:layout_below="@id/differ_sendTitle"
             android:hint="@string/async_send_content"
-        />
+            />
 
         <Button
-            android:id="@+id/async_sendButton"
+            android:id="@+id/differ_sendButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/async_send_button"
-            android:layout_below="@id/async_sendContent"
+            android:layout_below="@id/differ_sendContent"
 
-        />
-        
-        <TextView
-            android:id="@+id/async_receptionTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/async_sendButton"
-            android:text="@string/async_reception_title"
-        />
+            />
 
-        <EditText
-            android:id="@+id/async_receptionContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/async_receptionTitle"
-            android:hint="@string/async_reception_content"
-        />
+
 
 
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -836,28 +836,40 @@ public final class DirectoryOuterClass {
         getFirstnameBytes();
 
     /**
-     * <code>string gender = 3;</code>
-     * @return The gender.
+     * <code>string middlename = 3;</code>
+     * @return The middlename.
      */
-    java.lang.String getGender();
+    java.lang.String getMiddlename();
     /**
-     * <code>string gender = 3;</code>
-     * @return The bytes for gender.
+     * <code>string middlename = 3;</code>
+     * @return The bytes for middlename.
      */
     com.google.protobuf.ByteString
-        getGenderBytes();
+        getMiddlenameBytes();
 
     /**
-     * <code>string phone = 4;</code>
-     * @return The phone.
+     * <code>repeated .Phone phone = 4;</code>
      */
-    java.lang.String getPhone();
+    java.util.List<com.example.labo2.protobuf.DirectoryOuterClass.Phone> 
+        getPhoneList();
     /**
-     * <code>string phone = 4;</code>
-     * @return The bytes for phone.
+     * <code>repeated .Phone phone = 4;</code>
      */
-    com.google.protobuf.ByteString
-        getPhoneBytes();
+    com.example.labo2.protobuf.DirectoryOuterClass.Phone getPhone(int index);
+    /**
+     * <code>repeated .Phone phone = 4;</code>
+     */
+    int getPhoneCount();
+    /**
+     * <code>repeated .Phone phone = 4;</code>
+     */
+    java.util.List<? extends com.example.labo2.protobuf.DirectoryOuterClass.PhoneOrBuilder> 
+        getPhoneOrBuilderList();
+    /**
+     * <code>repeated .Phone phone = 4;</code>
+     */
+    com.example.labo2.protobuf.DirectoryOuterClass.PhoneOrBuilder getPhoneOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code Person}
@@ -874,8 +886,8 @@ public final class DirectoryOuterClass {
     private Person() {
       name_ = "";
       firstname_ = "";
-      gender_ = "";
-      phone_ = "";
+      middlename_ = "";
+      phone_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -898,6 +910,7 @@ public final class DirectoryOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -923,13 +936,16 @@ public final class DirectoryOuterClass {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              gender_ = s;
+              middlename_ = s;
               break;
             }
             case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              phone_ = s;
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                phone_ = new java.util.ArrayList<com.example.labo2.protobuf.DirectoryOuterClass.Phone>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              phone_.add(
+                  input.readMessage(com.example.labo2.protobuf.DirectoryOuterClass.Phone.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -947,6 +963,9 @@ public final class DirectoryOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          phone_ = java.util.Collections.unmodifiableList(phone_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1040,38 +1059,38 @@ public final class DirectoryOuterClass {
       }
     }
 
-    public static final int GENDER_FIELD_NUMBER = 3;
-    private volatile java.lang.Object gender_;
+    public static final int MIDDLENAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object middlename_;
     /**
-     * <code>string gender = 3;</code>
-     * @return The gender.
+     * <code>string middlename = 3;</code>
+     * @return The middlename.
      */
     @java.lang.Override
-    public java.lang.String getGender() {
-      java.lang.Object ref = gender_;
+    public java.lang.String getMiddlename() {
+      java.lang.Object ref = middlename_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        gender_ = s;
+        middlename_ = s;
         return s;
       }
     }
     /**
-     * <code>string gender = 3;</code>
-     * @return The bytes for gender.
+     * <code>string middlename = 3;</code>
+     * @return The bytes for middlename.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getGenderBytes() {
-      java.lang.Object ref = gender_;
+        getMiddlenameBytes() {
+      java.lang.Object ref = middlename_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        gender_ = b;
+        middlename_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1079,41 +1098,43 @@ public final class DirectoryOuterClass {
     }
 
     public static final int PHONE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object phone_;
+    private java.util.List<com.example.labo2.protobuf.DirectoryOuterClass.Phone> phone_;
     /**
-     * <code>string phone = 4;</code>
-     * @return The phone.
+     * <code>repeated .Phone phone = 4;</code>
      */
     @java.lang.Override
-    public java.lang.String getPhone() {
-      java.lang.Object ref = phone_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        phone_ = s;
-        return s;
-      }
+    public java.util.List<com.example.labo2.protobuf.DirectoryOuterClass.Phone> getPhoneList() {
+      return phone_;
     }
     /**
-     * <code>string phone = 4;</code>
-     * @return The bytes for phone.
+     * <code>repeated .Phone phone = 4;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getPhoneBytes() {
-      java.lang.Object ref = phone_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        phone_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public java.util.List<? extends com.example.labo2.protobuf.DirectoryOuterClass.PhoneOrBuilder> 
+        getPhoneOrBuilderList() {
+      return phone_;
+    }
+    /**
+     * <code>repeated .Phone phone = 4;</code>
+     */
+    @java.lang.Override
+    public int getPhoneCount() {
+      return phone_.size();
+    }
+    /**
+     * <code>repeated .Phone phone = 4;</code>
+     */
+    @java.lang.Override
+    public com.example.labo2.protobuf.DirectoryOuterClass.Phone getPhone(int index) {
+      return phone_.get(index);
+    }
+    /**
+     * <code>repeated .Phone phone = 4;</code>
+     */
+    @java.lang.Override
+    public com.example.labo2.protobuf.DirectoryOuterClass.PhoneOrBuilder getPhoneOrBuilder(
+        int index) {
+      return phone_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1136,11 +1157,11 @@ public final class DirectoryOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(firstname_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, firstname_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gender_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, gender_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(middlename_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, middlename_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phone_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, phone_);
+      for (int i = 0; i < phone_.size(); i++) {
+        output.writeMessage(4, phone_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1157,11 +1178,12 @@ public final class DirectoryOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(firstname_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, firstname_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gender_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, gender_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(middlename_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, middlename_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phone_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, phone_);
+      for (int i = 0; i < phone_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, phone_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1182,10 +1204,10 @@ public final class DirectoryOuterClass {
           .equals(other.getName())) return false;
       if (!getFirstname()
           .equals(other.getFirstname())) return false;
-      if (!getGender()
-          .equals(other.getGender())) return false;
-      if (!getPhone()
-          .equals(other.getPhone())) return false;
+      if (!getMiddlename()
+          .equals(other.getMiddlename())) return false;
+      if (!getPhoneList()
+          .equals(other.getPhoneList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1201,10 +1223,12 @@ public final class DirectoryOuterClass {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + FIRSTNAME_FIELD_NUMBER;
       hash = (53 * hash) + getFirstname().hashCode();
-      hash = (37 * hash) + GENDER_FIELD_NUMBER;
-      hash = (53 * hash) + getGender().hashCode();
-      hash = (37 * hash) + PHONE_FIELD_NUMBER;
-      hash = (53 * hash) + getPhone().hashCode();
+      hash = (37 * hash) + MIDDLENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getMiddlename().hashCode();
+      if (getPhoneCount() > 0) {
+        hash = (37 * hash) + PHONE_FIELD_NUMBER;
+        hash = (53 * hash) + getPhoneList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1333,6 +1357,7 @@ public final class DirectoryOuterClass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getPhoneFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1342,10 +1367,14 @@ public final class DirectoryOuterClass {
 
         firstname_ = "";
 
-        gender_ = "";
+        middlename_ = "";
 
-        phone_ = "";
-
+        if (phoneBuilder_ == null) {
+          phone_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          phoneBuilder_.clear();
+        }
         return this;
       }
 
@@ -1372,10 +1401,19 @@ public final class DirectoryOuterClass {
       @java.lang.Override
       public com.example.labo2.protobuf.DirectoryOuterClass.Person buildPartial() {
         com.example.labo2.protobuf.DirectoryOuterClass.Person result = new com.example.labo2.protobuf.DirectoryOuterClass.Person(this);
+        int from_bitField0_ = bitField0_;
         result.name_ = name_;
         result.firstname_ = firstname_;
-        result.gender_ = gender_;
-        result.phone_ = phone_;
+        result.middlename_ = middlename_;
+        if (phoneBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            phone_ = java.util.Collections.unmodifiableList(phone_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.phone_ = phone_;
+        } else {
+          result.phone_ = phoneBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -1432,13 +1470,35 @@ public final class DirectoryOuterClass {
           firstname_ = other.firstname_;
           onChanged();
         }
-        if (!other.getGender().isEmpty()) {
-          gender_ = other.gender_;
+        if (!other.getMiddlename().isEmpty()) {
+          middlename_ = other.middlename_;
           onChanged();
         }
-        if (!other.getPhone().isEmpty()) {
-          phone_ = other.phone_;
-          onChanged();
+        if (phoneBuilder_ == null) {
+          if (!other.phone_.isEmpty()) {
+            if (phone_.isEmpty()) {
+              phone_ = other.phone_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensurePhoneIsMutable();
+              phone_.addAll(other.phone_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.phone_.isEmpty()) {
+            if (phoneBuilder_.isEmpty()) {
+              phoneBuilder_.dispose();
+              phoneBuilder_ = null;
+              phone_ = other.phone_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              phoneBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPhoneFieldBuilder() : null;
+            } else {
+              phoneBuilder_.addAllMessages(other.phone_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1468,6 +1528,7 @@ public final class DirectoryOuterClass {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -1621,156 +1682,320 @@ public final class DirectoryOuterClass {
         return this;
       }
 
-      private java.lang.Object gender_ = "";
+      private java.lang.Object middlename_ = "";
       /**
-       * <code>string gender = 3;</code>
-       * @return The gender.
+       * <code>string middlename = 3;</code>
+       * @return The middlename.
        */
-      public java.lang.String getGender() {
-        java.lang.Object ref = gender_;
+      public java.lang.String getMiddlename() {
+        java.lang.Object ref = middlename_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          gender_ = s;
+          middlename_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string gender = 3;</code>
-       * @return The bytes for gender.
+       * <code>string middlename = 3;</code>
+       * @return The bytes for middlename.
        */
       public com.google.protobuf.ByteString
-          getGenderBytes() {
-        java.lang.Object ref = gender_;
+          getMiddlenameBytes() {
+        java.lang.Object ref = middlename_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          gender_ = b;
+          middlename_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string gender = 3;</code>
-       * @param value The gender to set.
+       * <code>string middlename = 3;</code>
+       * @param value The middlename to set.
        * @return This builder for chaining.
        */
-      public Builder setGender(
+      public Builder setMiddlename(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        gender_ = value;
+        middlename_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string gender = 3;</code>
+       * <code>string middlename = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearGender() {
+      public Builder clearMiddlename() {
         
-        gender_ = getDefaultInstance().getGender();
+        middlename_ = getDefaultInstance().getMiddlename();
         onChanged();
         return this;
       }
       /**
-       * <code>string gender = 3;</code>
-       * @param value The bytes for gender to set.
+       * <code>string middlename = 3;</code>
+       * @param value The bytes for middlename to set.
        * @return This builder for chaining.
        */
-      public Builder setGenderBytes(
+      public Builder setMiddlenameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        gender_ = value;
+        middlename_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object phone_ = "";
+      private java.util.List<com.example.labo2.protobuf.DirectoryOuterClass.Phone> phone_ =
+        java.util.Collections.emptyList();
+      private void ensurePhoneIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          phone_ = new java.util.ArrayList<com.example.labo2.protobuf.DirectoryOuterClass.Phone>(phone_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.example.labo2.protobuf.DirectoryOuterClass.Phone, com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder, com.example.labo2.protobuf.DirectoryOuterClass.PhoneOrBuilder> phoneBuilder_;
+
       /**
-       * <code>string phone = 4;</code>
-       * @return The phone.
+       * <code>repeated .Phone phone = 4;</code>
        */
-      public java.lang.String getPhone() {
-        java.lang.Object ref = phone_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          phone_ = s;
-          return s;
+      public java.util.List<com.example.labo2.protobuf.DirectoryOuterClass.Phone> getPhoneList() {
+        if (phoneBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(phone_);
         } else {
-          return (java.lang.String) ref;
+          return phoneBuilder_.getMessageList();
         }
       }
       /**
-       * <code>string phone = 4;</code>
-       * @return The bytes for phone.
+       * <code>repeated .Phone phone = 4;</code>
        */
-      public com.google.protobuf.ByteString
-          getPhoneBytes() {
-        java.lang.Object ref = phone_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          phone_ = b;
-          return b;
+      public int getPhoneCount() {
+        if (phoneBuilder_ == null) {
+          return phone_.size();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return phoneBuilder_.getCount();
         }
       }
       /**
-       * <code>string phone = 4;</code>
-       * @param value The phone to set.
-       * @return This builder for chaining.
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public com.example.labo2.protobuf.DirectoryOuterClass.Phone getPhone(int index) {
+        if (phoneBuilder_ == null) {
+          return phone_.get(index);
+        } else {
+          return phoneBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
        */
       public Builder setPhone(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        phone_ = value;
-        onChanged();
+          int index, com.example.labo2.protobuf.DirectoryOuterClass.Phone value) {
+        if (phoneBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePhoneIsMutable();
+          phone_.set(index, value);
+          onChanged();
+        } else {
+          phoneBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>string phone = 4;</code>
-       * @return This builder for chaining.
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public Builder setPhone(
+          int index, com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder builderForValue) {
+        if (phoneBuilder_ == null) {
+          ensurePhoneIsMutable();
+          phone_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          phoneBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public Builder addPhone(com.example.labo2.protobuf.DirectoryOuterClass.Phone value) {
+        if (phoneBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePhoneIsMutable();
+          phone_.add(value);
+          onChanged();
+        } else {
+          phoneBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public Builder addPhone(
+          int index, com.example.labo2.protobuf.DirectoryOuterClass.Phone value) {
+        if (phoneBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePhoneIsMutable();
+          phone_.add(index, value);
+          onChanged();
+        } else {
+          phoneBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public Builder addPhone(
+          com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder builderForValue) {
+        if (phoneBuilder_ == null) {
+          ensurePhoneIsMutable();
+          phone_.add(builderForValue.build());
+          onChanged();
+        } else {
+          phoneBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public Builder addPhone(
+          int index, com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder builderForValue) {
+        if (phoneBuilder_ == null) {
+          ensurePhoneIsMutable();
+          phone_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          phoneBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public Builder addAllPhone(
+          java.lang.Iterable<? extends com.example.labo2.protobuf.DirectoryOuterClass.Phone> values) {
+        if (phoneBuilder_ == null) {
+          ensurePhoneIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, phone_);
+          onChanged();
+        } else {
+          phoneBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
        */
       public Builder clearPhone() {
-        
-        phone_ = getDefaultInstance().getPhone();
-        onChanged();
+        if (phoneBuilder_ == null) {
+          phone_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          phoneBuilder_.clear();
+        }
         return this;
       }
       /**
-       * <code>string phone = 4;</code>
-       * @param value The bytes for phone to set.
-       * @return This builder for chaining.
+       * <code>repeated .Phone phone = 4;</code>
        */
-      public Builder setPhoneBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        phone_ = value;
-        onChanged();
+      public Builder removePhone(int index) {
+        if (phoneBuilder_ == null) {
+          ensurePhoneIsMutable();
+          phone_.remove(index);
+          onChanged();
+        } else {
+          phoneBuilder_.remove(index);
+        }
         return this;
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder getPhoneBuilder(
+          int index) {
+        return getPhoneFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public com.example.labo2.protobuf.DirectoryOuterClass.PhoneOrBuilder getPhoneOrBuilder(
+          int index) {
+        if (phoneBuilder_ == null) {
+          return phone_.get(index);  } else {
+          return phoneBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public java.util.List<? extends com.example.labo2.protobuf.DirectoryOuterClass.PhoneOrBuilder> 
+           getPhoneOrBuilderList() {
+        if (phoneBuilder_ != null) {
+          return phoneBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(phone_);
+        }
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder addPhoneBuilder() {
+        return getPhoneFieldBuilder().addBuilder(
+            com.example.labo2.protobuf.DirectoryOuterClass.Phone.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder addPhoneBuilder(
+          int index) {
+        return getPhoneFieldBuilder().addBuilder(
+            index, com.example.labo2.protobuf.DirectoryOuterClass.Phone.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Phone phone = 4;</code>
+       */
+      public java.util.List<com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder> 
+           getPhoneBuilderList() {
+        return getPhoneFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.example.labo2.protobuf.DirectoryOuterClass.Phone, com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder, com.example.labo2.protobuf.DirectoryOuterClass.PhoneOrBuilder> 
+          getPhoneFieldBuilder() {
+        if (phoneBuilder_ == null) {
+          phoneBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.example.labo2.protobuf.DirectoryOuterClass.Phone, com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder, com.example.labo2.protobuf.DirectoryOuterClass.PhoneOrBuilder>(
+                  phone_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          phone_ = null;
+        }
+        return phoneBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1825,6 +2050,798 @@ public final class DirectoryOuterClass {
 
   }
 
+  public interface PhoneOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Phone)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.Phone.Type type = 1;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.Phone.Type type = 1;</code>
+     * @return The type.
+     */
+    com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type getType();
+
+    /**
+     * <code>string number = 2;</code>
+     * @return The number.
+     */
+    java.lang.String getNumber();
+    /**
+     * <code>string number = 2;</code>
+     * @return The bytes for number.
+     */
+    com.google.protobuf.ByteString
+        getNumberBytes();
+  }
+  /**
+   * Protobuf type {@code Phone}
+   */
+  public static final class Phone extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Phone)
+      PhoneOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Phone.newBuilder() to construct.
+    private Phone(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Phone() {
+      type_ = 0;
+      number_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Phone();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Phone(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              number_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.example.labo2.protobuf.DirectoryOuterClass.internal_static_Phone_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.example.labo2.protobuf.DirectoryOuterClass.internal_static_Phone_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.example.labo2.protobuf.DirectoryOuterClass.Phone.class, com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code Phone.Type}
+     */
+    public enum Type
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>HOME = 0;</code>
+       */
+      HOME(0),
+      /**
+       * <code>MOBILE = 1;</code>
+       */
+      MOBILE(1),
+      /**
+       * <code>WORK = 2;</code>
+       */
+      WORK(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>HOME = 0;</code>
+       */
+      public static final int HOME_VALUE = 0;
+      /**
+       * <code>MOBILE = 1;</code>
+       */
+      public static final int MOBILE_VALUE = 1;
+      /**
+       * <code>WORK = 2;</code>
+       */
+      public static final int WORK_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Type forNumber(int value) {
+        switch (value) {
+          case 0: return HOME;
+          case 1: return MOBILE;
+          case 2: return WORK;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.example.labo2.protobuf.DirectoryOuterClass.Phone.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Type[] VALUES = values();
+
+      public static Type valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Type(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:Phone.Type)
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private int type_;
+    /**
+     * <code>.Phone.Type type = 1;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.Phone.Type type = 1;</code>
+     * @return The type.
+     */
+    @java.lang.Override public com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type getType() {
+      @SuppressWarnings("deprecation")
+      com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type result = com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type.valueOf(type_);
+      return result == null ? com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type.UNRECOGNIZED : result;
+    }
+
+    public static final int NUMBER_FIELD_NUMBER = 2;
+    private volatile java.lang.Object number_;
+    /**
+     * <code>string number = 2;</code>
+     * @return The number.
+     */
+    @java.lang.Override
+    public java.lang.String getNumber() {
+      java.lang.Object ref = number_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        number_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string number = 2;</code>
+     * @return The bytes for number.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNumberBytes() {
+      java.lang.Object ref = number_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        number_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (type_ != com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type.HOME.getNumber()) {
+        output.writeEnum(1, type_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(number_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, number_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (type_ != com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type.HOME.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, type_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(number_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, number_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.example.labo2.protobuf.DirectoryOuterClass.Phone)) {
+        return super.equals(obj);
+      }
+      com.example.labo2.protobuf.DirectoryOuterClass.Phone other = (com.example.labo2.protobuf.DirectoryOuterClass.Phone) obj;
+
+      if (type_ != other.type_) return false;
+      if (!getNumber()
+          .equals(other.getNumber())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
+      hash = (37 * hash) + NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getNumber().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.example.labo2.protobuf.DirectoryOuterClass.Phone prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Phone}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Phone)
+        com.example.labo2.protobuf.DirectoryOuterClass.PhoneOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.example.labo2.protobuf.DirectoryOuterClass.internal_static_Phone_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.example.labo2.protobuf.DirectoryOuterClass.internal_static_Phone_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.example.labo2.protobuf.DirectoryOuterClass.Phone.class, com.example.labo2.protobuf.DirectoryOuterClass.Phone.Builder.class);
+      }
+
+      // Construct using com.example.labo2.protobuf.DirectoryOuterClass.Phone.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        type_ = 0;
+
+        number_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.example.labo2.protobuf.DirectoryOuterClass.internal_static_Phone_descriptor;
+      }
+
+      @java.lang.Override
+      public com.example.labo2.protobuf.DirectoryOuterClass.Phone getDefaultInstanceForType() {
+        return com.example.labo2.protobuf.DirectoryOuterClass.Phone.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.example.labo2.protobuf.DirectoryOuterClass.Phone build() {
+        com.example.labo2.protobuf.DirectoryOuterClass.Phone result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.example.labo2.protobuf.DirectoryOuterClass.Phone buildPartial() {
+        com.example.labo2.protobuf.DirectoryOuterClass.Phone result = new com.example.labo2.protobuf.DirectoryOuterClass.Phone(this);
+        result.type_ = type_;
+        result.number_ = number_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.example.labo2.protobuf.DirectoryOuterClass.Phone) {
+          return mergeFrom((com.example.labo2.protobuf.DirectoryOuterClass.Phone)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.example.labo2.protobuf.DirectoryOuterClass.Phone other) {
+        if (other == com.example.labo2.protobuf.DirectoryOuterClass.Phone.getDefaultInstance()) return this;
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
+        if (!other.getNumber().isEmpty()) {
+          number_ = other.number_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.example.labo2.protobuf.DirectoryOuterClass.Phone parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.example.labo2.protobuf.DirectoryOuterClass.Phone) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.Phone.Type type = 1;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.Phone.Type type = 1;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.Phone.Type type = 1;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type getType() {
+        @SuppressWarnings("deprecation")
+        com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type result = com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type.valueOf(type_);
+        return result == null ? com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.Phone.Type type = 1;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(com.example.labo2.protobuf.DirectoryOuterClass.Phone.Type value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.Phone.Type type = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object number_ = "";
+      /**
+       * <code>string number = 2;</code>
+       * @return The number.
+       */
+      public java.lang.String getNumber() {
+        java.lang.Object ref = number_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          number_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string number = 2;</code>
+       * @return The bytes for number.
+       */
+      public com.google.protobuf.ByteString
+          getNumberBytes() {
+        java.lang.Object ref = number_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          number_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string number = 2;</code>
+       * @param value The number to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNumber(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string number = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNumber() {
+        
+        number_ = getDefaultInstance().getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string number = 2;</code>
+       * @param value The bytes for number to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNumberBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Phone)
+    }
+
+    // @@protoc_insertion_point(class_scope:Phone)
+    private static final com.example.labo2.protobuf.DirectoryOuterClass.Phone DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.example.labo2.protobuf.DirectoryOuterClass.Phone();
+    }
+
+    public static com.example.labo2.protobuf.DirectoryOuterClass.Phone getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Phone>
+        PARSER = new com.google.protobuf.AbstractParser<Phone>() {
+      @java.lang.Override
+      public Phone parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Phone(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Phone> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Phone> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.example.labo2.protobuf.DirectoryOuterClass.Phone getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Directory_descriptor;
   private static final 
@@ -1835,6 +2852,11 @@ public final class DirectoryOuterClass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Person_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Phone_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Phone_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1845,10 +2867,12 @@ public final class DirectoryOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\017directory.proto\"%\n\tDirectory\022\030\n\007result" +
-      "s\030\001 \003(\0132\007.Person\"H\n\006Person\022\014\n\004name\030\001 \001(\t" +
-      "\022\021\n\tfirstname\030\002 \001(\t\022\016\n\006gender\030\003 \001(\t\022\r\n\005p" +
-      "hone\030\004 \001(\tB\034\n\032com.example.labo2.protobuf" +
-      "b\006proto3"
+      "s\030\001 \003(\0132\007.Person\"T\n\006Person\022\014\n\004name\030\001 \001(\t" +
+      "\022\021\n\tfirstname\030\002 \001(\t\022\022\n\nmiddlename\030\003 \001(\t\022" +
+      "\025\n\005phone\030\004 \003(\0132\006.Phone\"Z\n\005Phone\022\031\n\004type\030" +
+      "\001 \001(\0162\013.Phone.Type\022\016\n\006number\030\002 \001(\t\"&\n\004Ty" +
+      "pe\022\010\n\004HOME\020\000\022\n\n\006MOBILE\020\001\022\010\n\004WORK\020\002B\034\n\032co" +
+      "m.example.labo2.protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1865,7 +2889,13 @@ public final class DirectoryOuterClass {
     internal_static_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Person_descriptor,
-        new java.lang.String[] { "Name", "Firstname", "Gender", "Phone", });
+        new java.lang.String[] { "Name", "Firstname", "Middlename", "Phone", });
+    internal_static_Phone_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_Phone_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Phone_descriptor,
+        new java.lang.String[] { "Type", "Number", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

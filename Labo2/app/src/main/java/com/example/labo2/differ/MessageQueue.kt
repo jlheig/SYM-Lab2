@@ -1,6 +1,5 @@
 package com.example.labo2.differ
 
-import android.os.Handler
 import android.util.Log
 import java.io.IOException
 import java.io.InputStreamReader
@@ -13,21 +12,26 @@ import java.util.*
 /**
  * Class that stock pending messages and try to send them every 5 seconds
  */
-class MessageQueue {
+class MessageQueue(var firstRequest: Boolean = true) {
     private val TAG = "MessageQueue"
-    private var requestQueue: Queue<String> = PriorityQueue<String>()
-    private var firstRequest = true; //Used to not start a thread everytime sendRequest is called
+    private var requestQueue: Queue<String> = LinkedList<String>()
+
     fun sendRequest(request : String, urlName : String ) {
         requestQueue.add(request)
-        if (firstRequest) {
-            processRequest(urlName)
+        if(firstRequest) {
+            Thread{
+                firstRequest = false;
+                while (!requestQueue.isEmpty()) {
+                    processRequest(urlName)
+                    Thread.sleep(5000)
+                }
+                firstRequest = true
+            }.start()
         }
     }
 
     fun processRequest(urlName: String){
-        Thread {
-            firstRequest = false;
-            val currentRequest = requestQueue.peek() ?: return@Thread;
+            val currentRequest = requestQueue.peek() ?: return;
 
             val url = URL(urlName)
             val urlConnection = url.openConnection() as HttpURLConnection
@@ -54,9 +58,7 @@ class MessageQueue {
             }
             finally {
                 urlConnection.disconnect()
-                Thread.sleep(5000)
-                processRequest(urlName)
             }
-        }.start()
+
     }
 }

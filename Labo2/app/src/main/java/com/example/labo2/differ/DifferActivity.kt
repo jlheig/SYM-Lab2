@@ -10,6 +10,7 @@ class DifferActivity : AppCompatActivity() {
 
     lateinit var requestText : EditText
     lateinit var sendButton : Button
+    private val mQ = MessageQueue()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_differ)
@@ -18,8 +19,7 @@ class DifferActivity : AppCompatActivity() {
         sendButton = findViewById(R.id.differ_sendButton)
 
         sendButton.setOnClickListener {
-            val mQ = MessageQueue()
-            mQ.sendRequest( requestText.getText().toString(), "http://mobile.iict.ch/api/txt" )
+            mQ.sendRequest( requestText.getText().toString(), "http://mobile.iict.ch/api/txt")
         }
     }
 }

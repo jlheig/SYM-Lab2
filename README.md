@@ -42,14 +42,21 @@ catch(e: Exception){
 
 ### 4.2 Authentification
 Une transmission asynchrone pourrait être utilisé pour de l'authentification. La limitation serait que l'on ne pourrait pas continuer le processus d'authentification avant d'avoir reçu la réponse du serveur.
+Une transmission différée serait plus complexe car, l'app ne pourrait pas continuer de tourner normalement si ce dernier veut accéder à des fonctionalités qui requiert une authentification
 
-### 4.3
+### 4.3 Threads concurrents
 
 Les 2 threads pourraient tenter d'agir sur les mêmes données et donc fausser leur valeur et le processus entier. Il est également probable que cela demande plus de ressource et provoquent des ralentissements.
 
-### 4.4
+### 4.4 Ecriture différée
 
-### 4.5
+#### une connexion par transmission différée 
+Les avantages d'une connexion par transmission différée est qu'il simplifie le traitement des requêtes pour le serveur. L'inconvénient est que cela prendra plus de temps au serveurs pour traiter toutes les requêtes.
+
+#### Multiplexage
+Le grand avantage du multiplexage est qu'on peut envoyer toutes les données lors d'une seule connexion prenant ainsi beaucoup moins de temps à traiter. Par contre, il faut améliorer le protocole de communication entre le serveur et le client, pour que le client précise aux serveurs qu'il va recevoir plusieurs requêtes et le début et la fin de chaque requêtes. De plus comme on doit donner plus d'informations au serveur, les données prennent plus de place.
+
+### 4.5 Transmission d'objets
 
 A) SOAP offre un système de gestion d'erreurs inclus tandis que REST n'en offre pas. Cela ne nous permet donc pas de vérifier si les données qui se trouvent dans la requête sont valides, on peut donc imaginer envoyer des données invalides à notre service. Pour pallier à cela, on est obligé d'instaurer un système de validation personnel.
 
@@ -65,4 +72,16 @@ Afin de pallier à ce problème, on pourrait imaginer une liste de paramètres p
 
 Cela permettrait de réduire la taille de la requête et donc de pallier à ce problème.
 
-### 4.6
+### 4.6 Transmission compressée
+
+
+| type of file   | no deflate file size | deflate file size | Gain  |
+| -------------- | -------------------- | ----------------- | ----- |
+| Hello          | 5 B                  | 7 B               | - 40% |
+| long text      | 490 B                | 286 B             | 42%   |
+| json           | 147 B                | 101 B             | 32%   |
+| xml            | 296 B                | 187 B             | 37 %  |
+
+Plus les textes sont long, plus le gain de la compression est important. Par contre pour de tous petits textes, la compression est inutiles voire agrandit la taille du fichier.
+ 
+PLus les textes sont long, plus il faudra du temps aux machines pour décompresser du texte afin de le traiter.

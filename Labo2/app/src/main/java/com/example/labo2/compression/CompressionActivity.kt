@@ -23,8 +23,8 @@ class CompressionActivity : AppCompatActivity() {
 
         sendButton.setOnClickListener {
             val scm = SymComManager( object : CommunicationEventListener {
-                override fun handleServerResponse(response : String) {
-                    receptionText.setText(response)
+                override fun handleServerResponse(response : ByteArray) {
+                    receptionText.setText(String(response))
                 }
             })
 

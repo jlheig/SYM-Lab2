@@ -32,17 +32,18 @@ class ObjectActivity : AppCompatActivity() {
         textReceived = findViewById(R.id.object_receptionTitle)
 
 
+        //managing and handling the server responses
         syComManager = SymComManager( object : CommunicationEventListener {
-            override fun handleServerResponse(response : String) {
+            override fun handleServerResponse(response : ByteArray) {
                 val dsResponse: String
                 if(radioGroup.checkedRadioButtonId == R.id.radio_json) {
-                    dsResponse = deserializeJSON(response).toString()
+                    dsResponse = deserializeJSON(String(response)).toString()
                 }
                 else if (radioGroup.checkedRadioButtonId == R.id.radio_xml) {
-                    dsResponse = deserializeXML(response).toString()
+                    dsResponse = deserializeXML(String(response)).toString()
                 }
                 else {
-                    dsResponse = deserializePB(response.toByteArray()).toString()
+                    dsResponse = deserializePB(response).toString()
                 }
 
                 textReceived.setText(dsResponse)
@@ -50,12 +51,13 @@ class ObjectActivity : AppCompatActivity() {
         })
 
 
-
+        //sending the request
         sendButton.setOnClickListener{
             var data: String
             var phone1: Phone = Phone("0123456789", Phone.Type.HOME)
             var phone2: Phone = Phone("0123456789", Phone.Type.MOBILE)
             var phones: List<Phone> = listOf(phone1, phone2)
+
             if(radioGroup.checkedRadioButtonId == R.id.radio_json) {
                 val person = Person("JSON", "Test", "serialize", phones)
                 data = serializeJSON(person)
@@ -74,6 +76,7 @@ class ObjectActivity : AppCompatActivity() {
         }
     }
 
+    //function to serialize a Person into an XML String
     fun serializeXML(person: Person): String {
         return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
                 "<!DOCTYPE directory SYSTEM \"http://mobile.iict.ch/directory.dtd\">" +
@@ -82,6 +85,7 @@ class ObjectActivity : AppCompatActivity() {
                 "</directory>"
     }
 
+    //function to deserialize an XML String into a Person
     fun deserializeXML(person: String): Person {
         val docBuild = DocumentBuilderFactory.newInstance().newDocumentBuilder()
         val input = InputSource()
@@ -101,14 +105,17 @@ class ObjectActivity : AppCompatActivity() {
         return Person(name, firstname, middlename, phones)
     }
 
+    //function to serialize a Person into a JSON String
     fun serializeJSON(person: Person): String {
         return Gson().toJson(person)
     }
 
+    //function to deserialize a JSON String into a Person
     fun deserializeJSON(person: String): Person {
         return Gson().fromJson(person, Person::class.java)
     }
 
+    //function to serialize a Person into a ProtoBuf Byte array
     fun serializePB(person: Person): ByteArray {
         val dir = DirectoryOuterClass.Directory.newBuilder()
 
@@ -131,6 +138,7 @@ class ObjectActivity : AppCompatActivity() {
         return dir.build().toByteArray()
     }
 
+    //function to deserialize a ProtoBuf Byte array into a Person
     fun deserializePB(person: ByteArray): Person {
         val dir = DirectoryOuterClass.Directory.parseFrom(person)
         val person = dir.resultsList[0]

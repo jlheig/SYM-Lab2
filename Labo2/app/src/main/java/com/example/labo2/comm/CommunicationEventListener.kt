@@ -1,5 +1,5 @@
 package com.example.labo2.comm
 
 interface CommunicationEventListener {
-    fun handleServerResponse(response : String)
+    fun handleServerResponse(response : ByteArray)
 }

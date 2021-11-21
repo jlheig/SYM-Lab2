@@ -31,8 +31,8 @@ class GraphqlActivity : AppCompatActivity() {
 
         val requestAuthors = "{\"query\": \"{findAllAuthors{id, name}}\"}"
         val Authorscm = SymComManager( object : CommunicationEventListener {
-            override fun handleServerResponse(response: String) {
-                val authorArray = JSONObject(response).getJSONObject("data").getJSONArray("findAllAuthors")
+            override fun handleServerResponse(response: ByteArray) {
+                val authorArray = JSONObject(String(response)).getJSONObject("data").getJSONArray("findAllAuthors")
                 for(i : Int in 0..(authorArray.length() - 1) ) {
                     val authorObject = authorArray.getJSONObject(i)
                     var authorName = authorObject.getString("name")
@@ -54,9 +54,9 @@ class GraphqlActivity : AppCompatActivity() {
                 if (author is Author) {
                     val requestBooksByAuthor = "{\"query\": \"{findAuthorById(id:${author.id}){books{title}}}\"}"
                     val bookScm = SymComManager( object : CommunicationEventListener {
-                        override fun handleServerResponse(response: String) {
+                        override fun handleServerResponse(response: ByteArray) {
                             val bookAdapter = ArrayAdapter<String>(this@GraphqlActivity, android.R.layout.simple_expandable_list_item_1)
-                            val bookArray = JSONObject(response).getJSONObject("data").getJSONObject("findAuthorById").getJSONArray("books")
+                            val bookArray = JSONObject(String(response)).getJSONObject("data").getJSONObject("findAuthorById").getJSONArray("books")
                             for (i : Int in 0..(bookArray.length() - 1)) {
                                 val bookObject = bookArray.getJSONObject(i)
                                 var bookTitle = bookObject.getString("title")

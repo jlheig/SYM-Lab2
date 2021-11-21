@@ -45,7 +45,7 @@ class SymComManager (private var l : CommunicationEventListener) {
                 var text = input.readText()
                 val handler = android.os.Handler(Looper.getMainLooper())
                 handler.post {
-                    l.handleServerResponse(text)
+                    l.handleServerResponse(text.toByteArray())
                 }
             } catch (e : Exception) {
                 e.printStackTrace()
@@ -92,7 +92,7 @@ class SymComManager (private var l : CommunicationEventListener) {
                 var text = input.readText()
                 val handler = android.os.Handler(Looper.getMainLooper())
                 handler.post {
-                    l.handleServerResponse(text)
+                    l.handleServerResponse(text.toByteArray())
                 }
             } catch (e : Exception) {
                 e.printStackTrace()
